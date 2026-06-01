@@ -67,6 +67,39 @@
             letter-spacing: 2px;
         }
 
+                /* Royal Gold Maps Button Design */
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            background: linear-gradient(135deg, #FFFDF5 0%, #F5E6BE 100%);
+            color: var(--primary-bg);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            box-shadow: 0 2px 6px rgba(74, 14, 23, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+        .map-btn:hover {
+            background: var(--gold-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+        .map-btn svg {
+            fill: currentColor;
+            width: 14px;
+            height: 14px;
+        }
+
+
         /* Tab Navigation Links */
         .tabs-nav {
             display: flex;
