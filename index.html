@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Sonal & Atharva</title>
+    <!-- Google Fonts for Elegant Typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles & Theme Colors */
+        :root {
+            --primary-bg: #4A0E17; /* Deep Royal Maroon */
+            --card-bg: #ffffff;
+            --gold-primary: #D4AF37; /* Premium Gold */
+            --gold-dark: #AA7C11;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(rgba(0, 0, 0, 0.3) 20%, transparent 20%),
+                              radial-gradient(rgba(0, 0, 0, 0.3) 20%, transparent 20%);
+            background-size: 8px 8px;
+            background-position: 0 0, 4px 4px;
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container & Header Setup */
+        .wrapper {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .main-header {
+            color: var(--gold-primary);
+            margin-bottom: 30px;
+        }
+
+        .main-header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 5px;
+        }
+
+        .main-header p {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* Tab Navigation Links */
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid transparent;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--gold-primary);
+            color: var(--primary-bg);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Invitation Card Core Layout */
+        .invite-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border: 4px double var(--gold-primary);
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .invite-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Banner Graphics Section */
+        .card-banner {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-banner::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+        }
+
+        .card-banner h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: #ffffff;
+            font-size: 2.2rem;
+            z-index: 1;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+            border-bottom: 2px solid var(--gold-primary);
+            padding-bottom: 5px;
+        }
+
+        /* Content Text Formatting */
+        .card-content {
+            padding: 40px 30px;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #fffcf5 100%);
+        }
+
+        /* Elegant Ornamental Border Elements */
+        .card-content::before {
+            content: '✿';
+            position: absolute;
+            top: 15px; left: 15px;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+        .card-content::after {
+            content: '✿';
+            position: absolute;
+            bottom: 15px; right: 15px;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+
+        .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: var(--primary-bg);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* Event Details Box (Grid Layout) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid var(--gold-primary);
+            text-align: left;
+        }
+
+        .detail-item h3 {
+            font-size: 0.85rem;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .detail-item p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .landmark {
+            font-size: 0.9rem;
+            color: #c92a2a;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Feast / Hospitality Highlight */
+        .hospitality-tag {
+            display: inline-block;
+            background: var(--primary-bg);
+            color: var(--gold-primary);
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(74, 14, 23, 0.2);
+            border: 1px solid var(--gold-primary);
+        }
+
+        /* Responsive Optimization */
+        @media (max-width: 600px) {
+            .tabs-nav {
+                border-radius: 15px;
+            }
+            .tab-btn {
+                width: 100%;
+                border-radius: 8px;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            .main-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Main Invitation Header -->
+        <header class="main-header">
+            <h2>||Shri Ganeshay Namaha||<h2>
+            <h1>Sonal & Atharva</h1>
+            <p>Wedding Celebrations</p>
+        </header>
+
+        <!-- Dynamic Navigation Links -->
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(this, 'mehndi')">Mehndi</button>
+            <button class="tab-btn" onclick="switchTab(this, 'haldi')">Haldi</button>
+            <button class="tab-btn" onclick="switchTab(this, 'sangeet')">Sangeet</button>
+            <button class="tab-btn" onclick="switchTab(this, 'wedding')">Wedding</button>
+            <button class="tab-btn" onclick="switchTab(this, 'reception')">Reception</button>
+        </nav>
+
+        <!-- 1. MEHNDI CARD -->
+        <div id="mehndi" class="invite-card active">
+            <div class="card-banner" style="background-image: url('https://unsplash.com');">
+                <h2>Mehndi Ceremony</h2>
+            </div>
+            <div class="card-content">
+                <div class="couple-names">Sonal & Atharva</div>
+                <div class="tagline">Love, laughter, and henna designs</div>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h3>Date</h3>
+                        <p>17th June 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Time</h3>
+                        <p>05:00 PM Onwards</p>
+                    </div>
+                    <div class="detail-item full-width">
+                        <h3>Venue</h3>
+                        <p>Our Residence</p>
+                    </div>
+                </div>
+                <div class="hospitality-tag">🍽️ Followed by Dinner</div>
+            </div>
+        </div>
+
+        <!-- 2. HALDI CARD -->
+        <div id="haldi" class="invite-card">
+            <div class="card-banner" style="background-image: url('https://unsplash.com');">
+                <h2>Haldi Ceremony</h2>
+            </div>
+            <div class="card-content">
+                                <div class="couple-names">Sonal & Atharva</div>
+                <div class="tagline">Drenched in yellow sunshine & blessings</div>
+                <p style="text-align: center; font-style: italic; color: var(--gold-dark); margin-bottom: 15px; font-size: 0.95rem;">
+                    We cordially invite you and your family to join us as we celebrate love and beginnings with laughter and turmeric stains!
+                </p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h3>Date</h3>
+                        <p>18th June 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Time</h3>
+                        <p>09:30 AM</p>
+                    </div>
+                    <div class="detail-item full-width">
+                        <h3>Venue</h3>
+                        <p>PMG Hall, Madhav Nagar</p>
+                    </div>
+                </div>
+                <div class="hospitality-tag">🍽️ Followed by Lunch</div>
+            </div>
+        </div>
+
+        <!-- 3. SANGEET CARD -->
+        <div id="sangeet" class="invite-card">
+            <div class="card-banner" style="background-image: url('https://unsplash.com');">
+                <h2>Sangeet Night</h2>
+            </div>
+            <div class="card-content">
+                <div class="couple-names">Sonal & Atharva</div>
+                <div class="tagline">Put on your dancing shoes</div>
+                <p style="text-align: center; font-style: italic; color: var(--gold-dark); margin-bottom: 15px; font-size: 0.95rem;">
+                    We solicit your presence on our special night of music, dance, and celebration.
+                </p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h3>Date</h3>
+                        <p>18th June 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Time</h3>
+                        <p>06:00 PM Onwards</p>
+                    </div>
+                    <div class="detail-item full-width">
+                        <h3>Venue</h3>
+                        <p>PMG Hall, Madhav Nagar</p>
+                    </div>
+                </div>
+                <div class="hospitality-tag">🍽️ Followed by Dinner</div>
+            </div>
+        </div>
+
+        <!-- 4. WEDDING CARD -->
+        <div id="wedding" class="invite-card">
+            <div class="card-banner" style="background-image: url('https://unsplash.com');">
+                <h2>Wedding Invitation</h2>
+            </div>
+            <div class="card-content">
+                <div class="couple-names">Sonal & Atharva</div>
+                <div class="tagline">Two souls, one sacred journey</div>
+                <p style="text-align: center; font-style: italic; color: var(--gold-dark); margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">
+                    Together with our families, we seek your presence and blessings as we take our sacred vows and unite in holy matrimony.
+                </p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h3>Date</h3>
+                        <p>19th June 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Time</h3>
+                        <p>09:56 AM (Muhurt)</p>
+                    </div>
+                    <div class="detail-item full-width">
+                        <h3>Venue</h3>
+                        <p>PMG Hall, Madhav Nagar, Nagpur</p>
+                    </div>
+                </div>
+                <div class="hospitality-tag">🍽️ Followed by Lunch</div>
+            </div>
+        </div>
+
+        <!-- 5. RECEPTION CARD -->
+        <div id="reception" class="invite-card">
+            <div class="card-banner" style="background-image: url('https://unsplash.com');">
+                <h2>Reception Invitation</h2>
+            </div>
+            <div class="card-content">
+                <div class="couple-names">Sonal & Atharva</div>
+                <div class="tagline">Celebrate the newlywed couple</div>
+                <p style="text-align: center; font-style: italic; color: var(--gold-dark); margin-bottom: 15px; font-size: 0.95rem;">
+                    Please join us for an evening of celebration, dinner, and joy as we step into our new life as Mr. and Mrs.
+                </p>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h3>Date</h3>
+                        <p>20th June 2026</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Time</h3>
+                        <p>06:30 PM</p>
+                    </div>
+                    <div class="detail-item full-width">
+                        <h3>Venue</h3>
+                        <p>Jawahar Vidyarthi Gruh, Civil Lines, Nagpur</p>
+                        <div class="landmark">📍 Landmark: Behind GS College</div>
+                    </div>
+                </div>
+                <div class="hospitality-tag">🍽️ Followed by Dinner</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Tab Switching Engine Logic -->
+    <script>
+        function switchTab(clickedButton, functionId) {
+            const cards = document.querySelectorAll('.invite-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(functionId).classList.add('active');
+            clickedButton.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
